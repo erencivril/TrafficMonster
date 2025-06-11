@@ -1,10 +1,10 @@
-# 🚗 TrafficMonster - Unity Endless Runner Racing Game
+# 🚗 TrafficMonster - Unity Runner Racing Game
 
 [![Unity Version](https://img.shields.io/badge/Unity-2022.3%20LTS-blue.svg)](https://unity3d.com/get-unity/download)
 [![Platform](https://img.shields.io/badge/Platform-PC%20%7C%20Windows-lightgrey.svg)](https://github.com/erencivril/TrafficMonster)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> **A professional-quality 3D endless runner racing game with advanced police chase mechanics, strategic resource management, and dynamic difficulty scaling.**
+> **A professional-quality 3D runner racing game with advanced police chase mechanics, strategic resource management, and dynamic difficulty scaling.**
 
 ## 🎥 Project Presentation
 
@@ -12,7 +12,7 @@
 
 ## 📖 Project Overview
 
-TrafficMonster is a sophisticated Unity 3D endless runner that transforms the traditional genre into a strategic racing experience. Players must navigate through dense traffic, manage fuel resources, evade police chases, and reach the "Safe Haven" while making tactical decisions about upgrades and power-ups.
+TrafficMonster is a sophisticated Unity 3D runner that transforms the traditional genre into a strategic racing experience. Players must navigate through dense traffic, manage fuel resources, evade police chases, and reach the "Safe Haven" while making tactical decisions about upgrades and power-ups.
 
 ### 🎯 Core Objective
 Reach the **Safe Haven** (5000 meters) without running out of fuel or being caught by police, while avoiding traffic collisions and managing strategic resources.
