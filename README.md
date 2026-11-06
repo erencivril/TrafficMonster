@@ -1,114 +1,68 @@
-# 🚗 TrafficMonster - Unity Runner Racing Game
+# TrafficMonster
 
-[![Unity Version](https://img.shields.io/badge/Unity-2022.3%20LTS-blue.svg)](https://unity3d.com/get-unity/download)
-[![Platform](https://img.shields.io/badge/Platform-PC%20%7C%20Windows-lightgrey.svg)](https://github.com/erencivril/TrafficMonster)
+[![Unity](https://img.shields.io/badge/Unity-2022.3%20LTS-blue.svg)](https://unity3d.com/get-unity/download)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> **A 3D runner racing game with advanced police chase mechanics, strategic resource management, and dynamic difficulty scaling.**
+A 3D endless-runner racing game made in Unity. You drive through traffic, keep an eye on your fuel, shake off police chases and try to reach the "Safe Haven" 5000 meters away. Upgrades are bought at pit stops during the run.
 
-## 🎥 Project Presentation
+Project presentation video: https://youtu.be/MHMV2glUEes
 
-📺 **[Watch Our Project Presentation Video](https://youtu.be/MHMV2glUEes?feature=shared)**
+## Objective
 
-## 📖 Project Overview
+Reach the Safe Haven (5000 m) without running out of fuel or getting busted by the police.
 
-TrafficMonster is a sophisticated Unity 3D runner that transforms the traditional genre into a strategic racing experience. Players must navigate through dense traffic, manage fuel resources, evade police chases, and reach the "Safe Haven" while making tactical decisions about upgrades and power-ups.
+## Features
 
-### 🎯 Core Objective
-Reach the **Safe Haven** (5000 meters) without running out of fuel or being caught by police, while avoiding traffic collisions and managing strategic resources.
+**Police chase**
+- A chase starts automatically every 30 seconds.
+- Police speed scales with your upgrades and elapsed time.
+- A bust meter fills while a police car is close to you; you have to get away before it fills.
+- A pit stop is the only thing that despawns the police and resets the chase.
 
-## ✨ Key Features
+**Fuel**
+- Consumption depends on speed and lane changes.
+- A lane change costs 1 fuel unit and slows the car down for a moment.
+- Fuel pickups spawn more often when the tank is low.
 
-### 🚔 Advanced Police Chase System
-- **Automatic Triggers**: Police chases activate every 30 seconds
-- **Dynamic AI**: Police speed scales with player upgrades and game time
-- **Bust Meter**: Skill-based escape mechanics with visual feedback
-- **Strategic Pit Stops**: Only way to despawn police and reset encounters
+**Upgrades (per run)**
+- Engine: higher top speed.
+- Fuel tank: bigger capacity and an immediate refill.
+- Handling: smaller speed penalty on lane changes.
+- You can only afford one upgrade at the first pit stop, so the first choice matters.
 
-### ⛽ Resource Management
-- **Fuel System**: Dynamic consumption based on speed and lane changes
-- **Lane Change Penalties**: 1 fuel unit cost + speed reduction
-- **Emergency Spawning**: Increased fuel pickup frequency when running low
-- **Upgrade Integration**: Fuel tank capacity upgrades with bonus refills
+**Power-ups and pickups**
+- Speed boost (two thirds of power-up spawns): +50% speed for 8 seconds.
+- Shield (one third of spawns): 5 seconds of invincibility.
+- Coins: 75 per pickup, usually placed so you have to change lanes to get them.
 
-### 🔧 Session-Based Progression
-- **Engine Upgrades**: Speed improvements (72→108 km/h progression)
-- **Fuel Upgrades**: Tank capacity increases with immediate refills
-- **Handling Upgrades**: Lane change speed penalty reduction (50%→0%)
-- **Strategic Economy**: Can only afford 1 upgrade at first pit stop
+**Traffic**
+- Cars spawn per lane and the spawner checks for overlap before placing a new one.
+- Traffic density rises with difficulty and is lower around pit stops.
 
-### 🎮 Power-Up Systems
-- **Speed Boost** (2/3 spawns): 50% speed increase for 8 seconds - perfect for police escapes
-- **Shield Protection** (1/3 spawns): 5 seconds full invincibility with visual/audio feedback
-- **Coin Pickups**: 75 coins per collection with risk/reward lane changing
+**UI**
+- Speed (km/h), fuel gauge (yellow below 10, red below 5), distance left to the goal, and a finish screen with your time and best time.
 
-### 🚗 Traffic & Physics
-- **Lane Management**: Predictive spawning algorithms prevent clipping
-- **Dynamic Density**: Multi-car spawning with difficulty scaling
-- **Collision Variety**: Different car models with size-appropriate colliders
-- **Safe Zones**: Reduced traffic density around pit stops
+## Code
 
-### 📊 Real-Time UI
-- **Speed Meter**: km/h display with effective speed including penalties
-- **Fuel Gauge**: Dynamic color changes (yellow<10, red<5)
-- **Distance Tracking**: Countdown to Safe Haven goal
-- **Victory System**: Completion time tracking with best time records
+26 C# scripts, about 3,200 lines, in `Assets/Scripts/` (game manager, car controller, police AI and manager, fuel, traffic and lane managers, spawners, power-ups, pit stop and upgrade shop UI). Several managers (`GameManager`, `PoliceManager`, `UpgradeManager`, ...) are singletons that the other scripts talk to directly.
 
-## 🛠️ Technical Achievements
+## Controls
 
-### 📁 Architecture
-- **30+ C# Scripts** with singleton patterns
-- **6,000+ Lines of Code** with clean, modular design
-- **Cross-System Integration** with efficient communication patterns
-- **Performance Optimization** with object pooling and smart spawning
+- W / S: accelerate / brake (Shift+S to reverse)
+- A / D: change lane
+- Space: emergency brake
+- Mouse: menus
 
-### 🧠 Advanced Systems
-- **Predictive Traffic Spawning**: Lane-based algorithms prevent car overlap
-- **Dynamic Difficulty Scaling**: All systems adapt to player progress
-- **Observer Pattern Implementation**: Event-driven architecture
-- **Memory Management**: Automatic cleanup and resource optimization
+## Open the project
 
-## 🎮 How to Play
+You need Unity 2022.3 LTS (the project was last saved with 2022.3.62f1).
 
-### Controls
-- **W/S**: Accelerate/Brake (Shift+S for reverse)
-- **A/D**: Lane changing (costs fuel and speed)
-- **Space**: Emergency brake
-- **Mouse**: Navigate menus
+```bash
+git clone https://github.com/erencivril/TrafficMonster.git
+```
 
-### Strategy Tips
-1. **Fuel Management**: Monitor consumption and prioritize fuel pickups
-2. **Police Escapes**: Use speed boosts when police get close
-3. **Upgrade Planning**: Choose first upgrade wisely - you can only afford one!
-4. **Risk/Reward**: Decide if coin collection is worth the lane change risk
+Add the folder in Unity Hub, open `Assets/Scenes/SampleScene.unity` and press Play. To make a build, use File > Build Settings with `SampleScene` in the list.
 
-## 🚀 Getting Started
+## Licenses and credits
 
-### Prerequisites
-- Unity 2022.3 LTS
-- Visual Studio Community 2022
-- Windows 10/11
-
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/erencivril/TrafficMonster.git
-   ```
-2. Open Unity Hub and add the project
-3. Load `Assets/Scenes/SampleScene.unity`
-4. Press Play to start the game
-
-### Building
-1. Go to `File > Build Settings`
-2. Ensure `SampleScene` is in build
-3. Select platform and click `Build`
-
-## 🎯 Technical Highlights
-
-- **Singleton Patterns** for centralized management
-- **Predictive Algorithms** for traffic spawning
-- **Dynamic Difficulty Scaling** across all systems
-- **Session-Based Progression** with meaningful choices
-- **UI/UX** with real-time feedback
-- **Advanced AI** with behavioral patterns
-
+The code in this repository is MIT licensed (see `LICENSE`). The art and audio assets are third-party packs (Simple Vehicle Pack, Simple Retro Car, Free Sports Car, Simple Nature Pack, "Car Engine Sound - i6 German Free", TextMesh Pro) and keep their own licenses.
